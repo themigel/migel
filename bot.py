@@ -11,8 +11,7 @@ import sys
 # Bot configuration
 API_ID = 20873866
 API_HASH = "235d8287c8d1286d354536e3d587a84a"
-BOT_TOKEN = "8500367579:AAGX7i-_QUXPaJyKU4gZhCfvU8R_CtErayU"
-
+BOT_TOKEN = "8500367579:AAGqBGoXTLlDJnNPTOi5RHJ6L9Zv-KxD4hU"
 # Initialize bot
 app = Client(
     "sk1mmer_bot",
