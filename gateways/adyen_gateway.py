@@ -56,19 +56,27 @@ def format_adyen_response(card_info, response_message, suffix, bin_info, executi
     
     status_text = get_status_emoji(category)
     
-    response_text = f"{status_text}\n\n"
-    response_text += f"㊕ 𝗖𝗖 ⇾ {cc_display}\n"
-    response_text += f"㊕ 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 ⇾ Adyen API\n"
-    response_text += f"㊕ 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ⇾ {response_message}{suffix}\n\n"
-    
-    # Add BIN info if available
-    if bin_info:
-        response_text += f"㊕ 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼: {bin_info.get('vendor', 'N/A')} - {bin_info.get('type', 'N/A')} - {bin_info.get('level', 'N/A')}\n"
-        response_text += f"㊕ 𝗕𝗮𝗻𝗸: {bin_info.get('bank_name', 'N/A')}\n"
-        response_text += f"㊕ 𝗖𝗼𝘂𝗻𝘁𝗿𝘆: {bin_info.get('country', 'N/A')} {bin_info.get('flag', '')}\n\n"
-    
-    response_text += f"㊕ 𝗧𝗼𝗼𝗸 {execution_time:.2f} 𝘀𝗲𝗰𝗼𝗻𝗱𝘀"
-    
+    # Assuming you have user's info from message
+user_id = message.from_user.id
+first_name = message.from_user.first_name
+
+response_text = f"{status_text}\n\n"
+response_text += f"㊕ 𝗖𝗖 ⇾ {cc_display}\n"
+response_text += f"㊕ 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 ⇾ Adyen API\n"
+response_text += f"㊕ 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ⇾ {response_message}{suffix}\n\n"
+
+if bin_info:
+    response_text += f"㊕ 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼: {bin_info.get('vendor', 'N/A')} - {bin_info.get('type', 'N/A')} - {bin_info.get('level', 'N/A')}\n"
+    response_text += f"㊕ 𝗕𝗮𝗻𝗸: {bin_info.get('bank_name', 'N/A')}\n"
+    response_text += f"㊕ 𝗖𝗼𝘂𝗻𝘁𝗿𝘆: {bin_info.get('country', 'N/A')} {bin_info.get('flag', '')}\n\n"
+
+# ✅ Clickable Checked By (user who used bot)
+response_text += f"㊕ 𝘾𝙃𝙀𝘾𝙆𝙀𝘿 𝘽𝙔 : [{first_name}](tg://user?id={user_id})\n"
+
+# ✅ Owner (static username link)
+response_text += f"㊕ 𝙊𝙒𝙉𝙀𝙍 : [Spider](https://t.me/spider)\n"
+
+response_text += f"\n㊕ 𝗧𝗼𝗼𝗸 {execution_time:.2f} 𝘀𝗲𝗰𝗼𝗻𝗱𝘀"
     return response_text
 
 class AdyenGateway:
