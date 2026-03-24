@@ -18,10 +18,10 @@ from utils.gateway_middleware import validate_card_with_luhn
 
 # Plugin metadata
 PLUGIN_INFO = {
-    'name': 'PayPal Gateway',
+    'name': 'PayPal 1$',
     'commands': ['pp'],
     'prefixes': ['.', '/', '!', '$'],
-    'description': 'PayPal API payment gateway',
+    'description': 'PayPal 1$',
     'type': 'check',
     'status': 'active'
 }
@@ -44,7 +44,7 @@ def categorize_paypal_response(api_response):
 def get_status_emoji(category):
     """Get emoji for status category"""
     emoji_map = {
-        'approved': '𝗔𝗽𝗽𝗿𝗼𝘃𝗲𝗱 ✅',
+        'approved': '𝐂𝐇𝐀𝐑𝐆𝐄𝐃 🔥',
         'declined': '𝗗𝗲𝗰𝗹𝗶𝗻𝗲𝗱 ❌'
     }
     return emoji_map.get(category, '𝗗𝗲𝗰𝗹𝗶𝗻𝗲𝗱 ❌')
@@ -58,7 +58,7 @@ def format_paypal_response(card_info, response_message, suffix, bin_info, execut
     
     response_text = f"{status_text}\n\n"
     response_text += f"㊕ 𝗖𝗖 ⇾ {cc_display}\n"
-    response_text += f"㊕ 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 ⇾ PayPal API\n"
+    response_text += f"㊕ 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 ⇾ PayPal 1$\n"
     response_text += f"㊕ 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ⇾ {response_message}{suffix}\n\n"
     
     # Add BIN info if available

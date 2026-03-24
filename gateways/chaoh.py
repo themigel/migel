@@ -17,7 +17,7 @@ from utils.gateway_middleware import validate_card_with_luhn
 # Plugin metadata
 PLUGIN_INFO = {
     'name': 'Chaos Gateway',
-    'commands': ['ch'],
+    'commands': ['br'],
     'prefixes': ['.', '/', '!', '$'],
     'description': 'Chaos API payment gateway',
     'type': 'check',
@@ -56,7 +56,7 @@ def format_chaos_response(card_info, response_message, suffix, bin_info, executi
     
     response_text = f"{status_text}\n\n"
     response_text += f"㊕ 𝗖𝗖 ⇾ {cc_display}\n"
-    response_text += f"㊕ 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 ⇾ Chaos API\n"
+    response_text += f"㊕ 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 ⇾ Braintree auth\n"
     response_text += f"㊕ 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ⇾ {response_message}{suffix}\n\n"
     
     # Add BIN info if available
@@ -103,7 +103,7 @@ class ChaosGateway:
 def setup(app: Client):
     """Setup function called when plugin is loaded"""
     
-    @app.on_message(filters.command(["ch"], prefixes=[".", "/", "!", "$"]))
+    @app.on_message(filters.command(["br"], prefixes=[".", "/", "!", "$"]))
     async def st_command(client, message):
         """Handle /st command"""
         from utils.admin import check_banned, check_maintenance, check_gateway_access, forward_to_admin_if_enabled
@@ -153,9 +153,9 @@ def setup(app: Client):
         if not text:
             resp = f"""〈<a href='tg://user?id={user_id}'>꫟</a>〉-» 𝘾𝙝𝙖𝙤𝙨 𝘼𝙋𝙄 - CHECK
 
-〈♻️〉𝙂𝙖𝙩𝙚𝙬𝙖𝙮 -» Chaos API
+〈♻️〉𝙂𝙖𝙩𝙚𝙬𝙖𝙮 -» Braintree Auth
 
-<a href='tg://user?id={user_id}'>╰┈➤</a> 𝙁𝙤𝙧𝙢𝙖𝙩 -» /st cc|month|year|cvc"""
+<a href='tg://user?id={user_id}'>╰┈➤</a> 𝙁𝙤𝙧𝙢𝙖𝙩 -» /br cc|month|year|cvc"""
             await message.reply_text(resp, parse_mode=ParseMode.HTML)
             return
         

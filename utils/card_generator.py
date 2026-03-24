@@ -194,7 +194,7 @@ def generate_response(cc, amount, all_cards, brand, type_, level, bank, country,
 
 - 𝐓𝐢𝐦𝐞: - {time_taken:0.2f} 𝐬𝐞𝐜𝐨𝐧𝐝𝐬
 𝗚𝗲𝗻 𝗯𝘆 :  <a href="tg://user?id={user_id}"> {user_name}</a>
-𝗢𝘄𝗻𝗲𝗿 :  <a href="https://t.me/amkuushu">&#8203;ッ</a>
+𝗢𝘄𝗻𝗲𝗿 :  <a href="https://t.me/spid_3r">&#8203;ッ</a>
 """
 
 def setup_card_generator(app: Client):

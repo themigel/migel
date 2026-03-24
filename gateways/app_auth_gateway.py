@@ -19,7 +19,7 @@ from utils.gateway_middleware import validate_card_with_luhn
 # Plugin metadata
 PLUGIN_INFO = {
     'name': 'App-Auth Gateway',
-    'commands': ['ap'], # Changed command to 'ap' for App-Auth
+    'commands': ['sta'], # Changed command to 'ap' for App-Auth
     'prefixes': ['.', '/', '!', '$'],
     'description': 'App-Auth API payment gateway',
     'type': 'check',
@@ -58,7 +58,7 @@ def format_app_auth_response(card_info, response_message, suffix, bin_info, exec
     
     response_text = f"{status_text}\n\n"
     response_text += f"㊕ 𝗖𝗖 ⇾ {cc_display}\n"
-    response_text += f"㊕ 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 ⇾ App-Auth API\n"
+    response_text += f"㊕ 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 ⇾ Stripe Auth\n"
     response_text += f"㊕ 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ⇾ {response_message}{suffix}\n\n"
     
     # Add BIN info if available
@@ -155,9 +155,9 @@ def setup(app: Client):
         if not text:
             resp = f"""〈<a href='tg://user?id={user_id}'>꫟</a>〉-» 𝗔𝗽𝗽-𝗔𝘂𝘁𝗵 𝗔𝗣𝗜 - CHECK
 
-〈♻️〉𝙂𝙖𝙩𝙚𝙬𝙖𝙮 -» App-Auth API
+〈♻️〉𝙂𝙖𝙩𝙚𝙬𝙖𝙮 -» Stripe Auth
 
-<a href='tg://user?id={user_id}'>╰┈➤</a> 𝙁𝙤𝙧𝙢𝙖𝙩 -» /ap cc|month|year|cvc"""
+<a href='tg://user?id={user_id}'>╰┈➤</a> 𝙁𝙤𝙧𝙢𝙖𝙩 -» /sta cc|month|year|cvc"""
             await message.reply_text(resp, parse_mode=ParseMode.HTML)
             return
         

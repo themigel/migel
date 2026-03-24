@@ -44,7 +44,7 @@ def categorize_payflow_response(api_response):
 def get_status_emoji(category):
     """Get emoji for status category"""
     emoji_map = {
-        'approved': '𝗔𝗽𝗽𝗿𝗼𝘃𝗲𝗱 ✅',
+        'approved': '𝐂𝐇𝐀𝐑𝐆𝐄𝐃 🔥',
         'declined': '𝗗𝗲𝗰𝗹𝗶𝗻𝗲𝗱 ❌'
     }
     return emoji_map.get(category, '𝗗𝗲𝗰𝗹𝗶𝗻𝗲𝗱 ❌')
@@ -58,7 +58,7 @@ def format_payflow_response(card_info, response_message, suffix, bin_info, execu
     
     response_text = f"{status_text}\n\n"
     response_text += f"㊕ 𝗖𝗖 ⇾ {cc_display}\n"
-    response_text += f"㊕ 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 ⇾ Payflow API\n"
+    response_text += f"㊕ 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 ⇾ Payflow 25$\n"
     response_text += f"㊕ 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ⇾ {response_message}{suffix}\n\n"
     
     # Add BIN info if available
@@ -155,7 +155,7 @@ def setup(app: Client):
         if not text:
             resp = f"""〈<a href='tg://user?id={user_id}'>꫟</a>〉-» 𝗣𝗮𝘆𝗳𝗹𝗼𝘄 𝗔𝗣𝗜 - CHECK
 
-〈♻️〉𝙂𝙖𝙩𝙚𝙬𝙖𝙮 -» Payflow API
+〈♻️〉𝙂𝙖𝙩𝙚𝙬𝙖𝙮 -» Payflow 25$
 
 <a href='tg://user?id={user_id}'>╰┈➤</a> 𝙁𝙤𝙧𝙢𝙖𝙩 -» /pf cc|month|year|cvc"""
             await message.reply_text(resp, parse_mode=ParseMode.HTML)

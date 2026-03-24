@@ -62,22 +62,22 @@ def format_response(card_info, gateway_name, response_message, bin_info, executi
     main_response = refusal_reason_raw if refusal_reason_raw else result_code
     
     response_text = f"{status_text}\n\n"
-    response_text += f"[㊕](t.me/Amkuushu) 𝗖𝗖 ⇾ {cc_display}\n"
-    response_text += f"[㊕](t.me/Amkuushu) 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 ⇾ {gateway_name}\n"
+    response_text += f"[㊕](t.me/spid_3r) 𝗖𝗖 ⇾ {cc_display}\n"
+    response_text += f"[㊕](t.me/spid_3r) 𝗚𝗮𝘁𝗲𝘄𝗮𝘆 ⇾ {gateway_name}\n"
     
     # Add response with merchant advice code if present
     if merchant_advice_code:
-        response_text += f"[㊕](t.me/Amkuushu) 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ⇾ {main_response} ⇾ {merchant_advice_code}\n\n"
+        response_text += f"[㊕](t.me/spid_3r) 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ⇾ {main_response} ⇾ {merchant_advice_code}\n\n"
     else:
-        response_text += f"[㊕](t.me/Amkuushu) 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ⇾ {main_response}\n\n"
+        response_text += f"[㊕](t.me/spid_3r) 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲 ⇾ {main_response}\n\n"
     
     # Add BIN info if available
     if bin_info:
-        response_text += f"[㊕](t.me/Amkuushu) 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼: {bin_info.get('vendor', 'N/A')} - {bin_info.get('type', 'N/A')} - {bin_info.get('level', 'N/A')}\n"
-        response_text += f"[㊕](t.me/Amkuushu) 𝗕𝗮𝗻𝗸: {bin_info.get('bank_name', 'N/A')}\n"
-        response_text += f"[㊕](t.me/Amkuushu) 𝗖𝗼𝘂𝗻𝘁𝗿𝘆: {bin_info.get('country', 'N/A')} {bin_info.get('flag', '')}\n\n"
+        response_text += f"[㊕](t.me/spid_3r) 𝗕𝗜𝗡 𝗜𝗻𝗳𝗼: {bin_info.get('vendor', 'N/A')} - {bin_info.get('type', 'N/A')} - {bin_info.get('level', 'N/A')}\n"
+        response_text += f"[㊕](t.me/spid_3r) 𝗕𝗮𝗻𝗸: {bin_info.get('bank_name', 'N/A')}\n"
+        response_text += f"[㊕](t.me/spid_3r) 𝗖𝗼𝘂𝗻𝘁𝗿𝘆: {bin_info.get('country', 'N/A')} {bin_info.get('flag', '')}\n\n"
     
-    response_text += f"[㊕](t.me/Amkuushu) 𝗧𝗼𝗼𝗸 {execution_time:.2f} 𝘀𝗲𝗰𝗼𝗻𝗱𝘀"
+    response_text += f"[㊕](t.me/spid_3r) 𝗧𝗼𝗼𝗸 {execution_time:.2f} 𝘀𝗲𝗰𝗼𝗻𝗱𝘀"
     
     return response_text
 
@@ -87,8 +87,8 @@ def get_response_keyboard():
     
     keyboard = [
         [
-            InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url="https://t.me/amkushCC"),
-            InlineKeyboardButton("𝗢𝗪𝗡𝗘𝗥", url="https://t.me/Amkushu")
+            InlineKeyboardButton("𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url="https://t.me/migeldumps"),
+            InlineKeyboardButton("𝗢𝗪𝗡𝗘𝗥", url="https://t.me/spid_3r")
         ]
     ]
     return InlineKeyboardMarkup(keyboard)
